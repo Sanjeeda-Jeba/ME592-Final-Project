@@ -5,6 +5,8 @@
 ## Project Title: 
 **Robust Autonomous Driving System Using Deep Learning and Generative AI**
 
+Datasets: https://github.com/lhyfst/awesome-autonomous-driving-datasets
+
 ---
 
 ## Person 1: Jamie Preston  
