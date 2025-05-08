@@ -9,7 +9,7 @@ Datasets: https://github.com/lhyfst/awesome-autonomous-driving-datasets
 
 ---
 
-## Person 1: Jamie Preston  
+## Person 1:  
 **Role**: Data Collection + Baseline CNN Model (Behavior Cloning)
 
 ### Tasks:
@@ -28,7 +28,7 @@ Datasets: https://github.com/lhyfst/awesome-autonomous-driving-datasets
 
 ---
 
-## Person 2: Angona Biswas  
+## Person 2: 
 **Role**: Generative AI Part (Data Augmentation)
 
 ### Tasks:
