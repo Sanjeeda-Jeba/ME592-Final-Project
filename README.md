@@ -160,19 +160,19 @@ Available command-line arguments:
 - `--show`: Show visualizations in addition to saving them (flag)
 - `--device`: Device to use for evaluation (default: "cuda" if available, else "cpu")
 
-### Person 1: Jamie Preston
+### Person 1:
 - Set up and use simulator (CARLA or Udacity simulator)
 - Record clean daytime driving data
 - Build baseline CNN model
 - Train and validate the baseline model on clean data
 
-### Person 2: Angona Biswas
+### Person 2: 
 - Implement image augmentation to simulate night, rain, fog conditions
 - Augment the clean dataset to create challenging conditions dataset
 - Retrain the behavior cloning model on augmented + clean data
 - Track model improvement after augmentation
 
-### Person 3: [Your Name]
+### Person 3:
 - Design and perform evaluations
 - Write the final report in research paper format
 - Prepare presentation slides
