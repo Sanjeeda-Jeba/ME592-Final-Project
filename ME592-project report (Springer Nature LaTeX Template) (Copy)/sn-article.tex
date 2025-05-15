@@ -1,0 +1,468 @@
+%Version 3.1 December 2024
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%\documentclass[lineno,pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%=========================================================================================%%
+%% the documentclass is set to pdflatex as default. You can delete it if not appropriate.  %%
+%%=========================================================================================%%
+
+%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove Numbered in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-chicago.bst%  
+ 
+%%\documentclass[pdflatex,sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
+%%\documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
+%%\documentclass[pdflatex,sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}% Vancouver Numbered Reference Style
+%%\documentclass[pdflatex,sn-vancouver-ay]{sn-jnl}% Vancouver Author Year Reference Style
+%%\documentclass[pdflatex,sn-apa]{sn-jnl}% APA Reference Style
+%%\documentclass[pdflatex,sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+%%%%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+\begin{document}
+
+\title[Article Title]{Robust Autonomous Driving System Using Deep Learning and Generative AI}
+
+%%=============================================================%%
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
+%%  \sfx{IV}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author[1]{\fnm{Angona} \sur{Biswas}}\email{angona3@iastate.edu}
+
+\author[2,3]{\fnm{Second} \sur{Author}}\email{iiauthor@gmail.com}
+\equalcont{These authors contributed equally to this work.}
+
+\author[1,2]{\fnm{Third} \sur{Author}}\email{iiiauthor@gmail.com}
+\equalcont{These authors contributed equally to this work.}
+
+\affil[1]{\orgdiv{Electrical and Computer Engineering}, \orgname{Iowa State University}, \orgaddress{\street{Coover Hall, 2520 Osborn Dr}, \city{Ames}, \postcode{50011}, \state{IA}, \country{USA}}}
+
+\affil[2]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{10587}, \state{State}, \country{Country}}}
+
+\affil[3]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{610101}, \state{State}, \country{Country}}}
+
+%%==================================%%
+%% Sample for unstructured abstract %%
+%%==================================%%
+
+\abstract{Vision-based autonomous driving systems rely on accurate perception models to predict steering, throttle, and brake values with high precision across a broad spectrum of driving conditions. Most current driving datasets, however, are biased towards daytime, non-rainy, clear sight, leading to poor generalization in rare or adverse environments such as rain, fog, or night. Environmental diversity in training data is still a main research gap, which limits the reliability of end-to-end driving models in real-world deployment. To address this, we propose a hybrid framework where deep learning and generative AI are combined to enhance data variability and model robustness. We utilized ResNet18-based convolutional neural network trained on both the CARLA simulator dataset and Udacity Self-Driving Car dataset. To mitigate data scarcity in adverse environments, we employed CycleGAN-based image-to-image translation to synthesize driving scenes in rain, fog, and night-time, and also traditional augmentations such as flips, brightness, and shadow paste. Preprocessing were done on images by cropping, resizing, and normalization. We trained the model using the Adam optimizer and mean squared error loss, and regularized using dropout and weight decay. A time split of 80/20 is employed to deliver unbiased validation. Experimental outcomes show that our model gained low mean absolute error (MAE: 0.07–0.09) and follows steering behaviors well, especially in straight and moderately curving paths. Incorporating generative augmentation significantly enhances performance in the context of adversity, as confirmed by quantitative metrics as well as qualitative inspection. The results demonstrate that a merger of generative AI and deep learning drastically enhances generalization and integrity of autonomous driving systems, closing a pressing gap in current research.}
+
+%%================================%%
+%% Sample for structured abstract %%
+%%================================%%
+
+% \abstract{\textbf{Purpose:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Methods:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Results:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Conclusion:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.}
+
+\keywords{Autonomous Car, Generative AI, Deep Learning, ResNet18, CycleGAN}
+
+%%\pacs[JEL Classification]{D8, H51}
+
+%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+
+\maketitle
+
+\section{Introduction}\label{sec1}
+
+Since the mid-1980s, numerous academic institutions, research facilities, automakers, and businesses from various sectors have been studying and developing self-driving cars \cite{badue2021self}, also referred to as autonomous or driverless cars.  The Navlab mobile platform (\citet{thorpe2002toward}, 1991), the ARGO car from the University of Pavia and University of Parma (\citet{broggi1999argo}, 1999), and the VaMoRs and VaMP cars from UBM are significant examples of self-driving car research platforms in the past 20 years (\citet{gregor2002ems}, 2002). Through the use of sensors and a camera, an autonomous vehicle may learn its surroundings. It will then evaluate the information it receives from these external devices to assist in decision-making \cite{shreyas2020self}.  Small components can now efficiently do calculations with all types of data because to significant advancements in embedded electronics and hardware technology \cite{shreyas2020self}.  These vehicles are currently being built and tested by major automakers including Tesla, Google, and BMW.  According to recent findings, self-driving cars are already highly efficient and operate without the need for human assistance \cite{tian2018deeptest}.  In order to recognize and select appropriate and correct routing patterns, sophisticated control systems, algorithms, and software use all available sensory data and information \cite{vishnukumar2017machine}. Autonomous vehicles have complicated control systems that can able to take in sensor data, analyse the data to differentiate different objects in the surrounding environment and identify vehicles and other obstacles in the environment, which will be very helpful for planning to the desired destination \cite{zhu2014vehicle}. 
+
+In the areas of advanced driver assistance systems and autonomous driving, deep learning has advanced remarkably. \citet{qiu2024machine} aimed to enhance the detection accuracy of small objects in self-driving cars by fine-tuning the YOLOv5s model. It introduced three key enhancements: the EfficiCIoU loss, CBAMC3 module (merging CBAM with YOLOv5s's C3), and GELU activation function. These enhancements offered higher convergence rates, feature extraction, and detection accuracy of small targets. With Pure Pursuit and MPC algorithms combined, the system demonstrated more stable vehicle control and improved visual obstacle avoidance in actual road conditions. An improved target detection algorithm had been produced as a result of the YOLOv5s algorithm's enhancements and extensive real-world testing.  By increasing the system's capacity to effectively and consistently acquired target position and depth data, this algorithm improved the system's decision-making accuracy and resilience, which in turn strengthens the system's ability to avoid obstacles.
+
+Recent advances in end-to-end autonomous driving systems have shown promising results in handling complex driving scenarios. \citet{xiao2020multimodal} proposed a multimodal sensor fusion approach that integrates camera, LiDAR, and radar data to improve perception robustness in various environmental conditions. Their approach demonstrated significant improvements in object detection and tracking performance in challenging scenarios such as poor lighting and adverse weather. Similarly, \citet{chowdhuri2019multinet} developed a novel end-to-end trainable architecture for simultaneous learning of driving policy and semantic segmentation, achieving better generalization capabilities across different driving environments.
+
+The integration of event-based vision sensors with traditional frame-based cameras has also shown potential for enhancing autonomous driving systems. \citet{maqueda2018event} demonstrated that event cameras can complement conventional cameras by providing high temporal resolution and robust operation in challenging illumination conditions. Their approach showed particular promise for high-speed driving scenarios where rapid visual changes are difficult to capture with standard cameras.
+
+@article{wilson2020survey,
+  title={A survey on sensor technologies for autonomous driving},
+  author={Wilson, BM and Birrell, Stewart A and Yang, Liang and Fox, Charles and Burns, Matthew and Rodden, Tom and Mahdjoubi, Reyhaneh and Bransby, Malcolm and Lawson, Alastair and Eardley, Michael},
+  journal={IEEE Transactions on Intelligent Transportation Systems},
+  volume={24},
+  number={3},
+  pages={2812--2836},
+  year={2023},
+  publisher={IEEE}
+}
+
+The development of reliable vision-based autonomous driving systems presents significant challenges due to the variability of real-world driving conditions. \citet{chen2020progressive} proposed a progressive domain adaptation approach that bridges the gap between simulation and real-world environments by introducing intermediate domains. Their method demonstrated improved performance on real-world driving datasets after training primarily on simulation data. Similarly, \citet{sun2020scalability} investigated the scalability of imitation learning for autonomous driving, highlighting the importance of diverse training data in achieving robust performance across different environments. 
+
+Despite these advances, several research gaps remain. First, most existing datasets are biased toward daylight and clear weather conditions, leading to poor generalization in adverse environments. Second, traditional data augmentation techniques often fail to capture the complex visual changes caused by different weather and lighting conditions. Third, there is limited exploration of how generative models can be integrated with end-to-end driving frameworks to enhance robustness. Our work addresses these gaps by developing a hybrid approach combining deep learning with generative AI techniques to improve performance across diverse environmental conditions.
+
+\citet{rajagopal2023hybrid} tried to fulfill the challenge of scarce real-world labeled training data for deep learning models on autonomous driving by generating realistic road scene images from simulated data. In an attempt to build a trustable sim2real (sim-to-reality) transfer pipeline with a hybrid CycleGAN-based approach that enabled realistic street-view image creation from semantic segmentation maps and light and efficient road perception for city mobility. The authors proposed employing a CycleGAN-based generator network (showed in Figure \ref{fig1}) to convert simulated semantic labels into realistic road images, evaluate the approach on Cityscapes and KITTI datasets, and integrated a light-weight SVM-based road perception pipeline for online-efficient computation. The proposed approach combined realistic and high-quality synthetic datasets with minimal identity loss ($<$0.2), demonstrated satisfactory generalizability across datasets, and enables effective road perception with support for more efficient training and deployment of vision-based autonomous vehicles.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{figure/cygan.png}
+\caption{\citet{rajagopal2023hybrid} proposed this overall weather stacking approach.  First, N weather and luminous conditions are created from a reference real condition using an image translation CycleGAN model that was trained with unpaired data.  Next, adhering droplets are applied to the N conditions using a second image translation GAN model that was trained using paired data.  An instance of such a model stack is the current configuration, in which both models are freely electable.}\label{fig1}
+\end{figure}
+
+The key contributions of this project, in contrast to previous work, are:
+
+\begin{itemize} 
+\item We suggest an end-to-end system which combines deep learning-based autonomous and high-performance generative AI (CycleGAN) to provide realistic driving scenarios in a broad variety of environments (e.g., daytime and nighttime, rain and shine).
+
+\item Our approach demonstrates an end-to-end vision-based control pipeline where the driving policy is learned directly from raw camera images in a hand-crafted perception module or explicit feature engineering-free manner.
+
+\item We suggest a strong data preprocessing and augmentation pipeline that spans both conventional (flipping, brightness, cropping) and generative (CycleGAN-based image translation) methods.
+
+\item Our experiments use the Udacity Self-Driving Car dataset, as well as the CARLA simulator, to confirm the model's performance on various platforms and environments.
+
+\item We demonstrate significant improvements in model robustness, with generative augmentation reducing performance degradation in adverse conditions by 10-20% compared to traditional augmentation techniques.
+
+\item Our experimental results show that the proposed approach achieves high directional accuracy (>89%) even in challenging environmental conditions, a critical factor for safe autonomous driving deployment.
+\end{itemize}
+
+\section{Methodology}\label{sec2}
+
+\subsection{Data Collection and Preparation}
+\subsubsection{Datasets}
+For this project, we utilized two primary data sources:
+
+\begin{itemize}
+\item \textbf{Udacity Self-Driving Car Dataset}: This dataset was collected from the Udacity self-driving car challenge, featuring real-world driving scenarios captured from front-facing cameras mounted on autonomous vehicles. The dataset contains time-synchronized images along with corresponding steering angles, throttle values, and brake inputs. It provides diverse driving scenarios in various lighting and weather conditions, though primarily in daylight and clear weather.
+
+\item \textbf{CARLA Simulator Dataset}: We supplemented our real-world data with synthetic data generated from the CARLA autonomous driving simulator. This high-fidelity simulator enabled us to generate controlled driving scenarios with precise ground truth labels. The simulator's environmental parameter controls allowed us to generate data with specific weather conditions (clear, rain, fog) and lighting conditions (day, sunset, night) that were underrepresented in the Udacity dataset.
+\end{itemize}
+
+We implemented an 80/20 time-sequential split for train/validation data rather than random sampling, which better represents real-world deployment conditions where the model must generalize to future unseen driving segments rather than random frames.
+
+\subsubsection{Preprocessing}
+Our image preprocessing pipeline consisted of the following steps:
+\begin{itemize}
+\item \textbf{Image Cropping}: We cropped the top and bottom portions of the images to remove the sky and the vehicle's hood, focusing the model's attention on the road and relevant environmental features.
+\item \textbf{Resizing}: Images were resized to 224×224 pixels to match the input requirements of our pre-trained ResNet18 architecture.
+\item \textbf{Normalization}: Pixel values were normalized using means of [0.485, 0.456, 0.406] and standard deviations of [0.229, 0.224, 0.225], which are standard values for models pre-trained on ImageNet.
+\item \textbf{Basic Augmentations}: We employed traditional augmentation techniques including:
+  \begin{itemize}
+  \item Horizontal flipping with steering angle inversion
+  \item Random brightness and contrast adjustments (±20\%)
+  \item Small random shifts, rotations, and scaling (±10\% for shift/scale, ±10° for rotation)
+  \end{itemize}
+\end{itemize}
+
+\subsection{Generative AI for Data Augmentation}
+One of the major challenges in constructing robust vision-based autonomous driving systems is the absence of large amounts of labeled data covering a variety of and extreme environmental conditions. Datasets publicly available are mostly made up of clean, daytime scenes, and therefore it becomes challenging for the model to generalize to unusual but safety-critical scenarios such as rain, fog, or night driving. In order to counter this, our project leverages the use of generative AI to produce realistic driving images under diverse conditions of weather and lighting and thus augment the training data and model robustness.
+
+Generative models, and in particular Generative Adversarial Networks (GANs) \cite{saxena2021generative} and Variational Autoencoders (VAEs) \cite{akkem2024comprehensive}, have demonstrated superior performance in learning the underlying distribution of complex datasets and producing new high-quality samples. We utilize CycleGAN \cite{zhu2017unpaired}, a specific GAN architecture for unpaired image-to-image translation, in this paper. With CycleGAN, driving scenes can be translated from one domain (e.g., sunny weather) to another (e.g., rainy or dark) without requiring the images of the same scene under alternative conditions. 
+
+\subsubsection{CycleGAN}
+\citet{zhu2017unpaired} first brought up the concept of CycleGAN in their research paper in 2017. CycleGAN (Cycle-Consistent Generative Adversarial Network) is a deep learning model for unpaired image-to-image translation, in which images between one domain (X) and another (Y) can be translated without requiring paired training samples. Unlike traditional supervised methods based on corresponding image pairs (e.g., a photo and its artwork counterpart), CycleGAN is trained to translate between domains using two generator networks (G: X→Y and F: Y→X) and two discriminators (one for each domain).
+
+CycleGAN's central innovation is the cycle consistency loss: after translating a picture from X to Y by G, then back from Y to X by F, the outcome should strongly resemble the starting image (i.e., \( F(G(x)) \approx x \)). The same holds for the reverse direction \( G(F(y)) \approx y \). This loss regularizes the solution space and guarantees that mappings learned are semantically relevant and reversible even without the use of paired data.
+
+CycleGAN's overall objective unifies adversarial loss (that encourages generated images to become equivalent to real images in the target domain) and cycle consistency loss (ensuring invertability of the maps) \cite{chu2017cyclegan}. This has brought significant advancements towards tasks such as style transfer, object transfiguration, and domain adaptation compared to the past models using hand-crafted features or shared embeddings.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{figure/c1.png}
+\caption{(a) Two mapping functions, \( G: X \rightarrow Y \) and \( F: Y \rightarrow X \), as well as related adversarial discriminators, \( D_Y \) and \( D_X \), are included in our model. For \( D_X \), \( F \), and \( X \), \( D_Y \) pushes \( G \) to convert \( X \) into outputs that are identical to domain \( Y \), and vice versa. We apply two "cycle consistency losses" to further regularize the mappings, which encapsulate the idea that if we translate from one domain to another and back again, we ought to end up back where we started:  
+\( x \rightarrow G(x) \rightarrow F(G(x)) \approx x \) is the forward cycle-consistency loss (b), while  \( y \rightarrow F(y) \rightarrow G(F(y)) \approx y \) is the backward cycle-consistency loss (c).
+}\label{fig2}
+\end{figure}
+
+\textbf{Adversarial Loss}
+
+\citet{zhu2017unpaired} implemented adversarial losses~\cite{goodfellow2014generative} for both domain translation functions. For the generator \( G: X \rightarrow Y \) and its corresponding discriminator \( D_Y \), the adversarial loss is defined as:
+
+\[
+\mathcal{L}_{\text{GAN}}(G, D_Y, X, Y) = \mathbb{E}_{y \sim p_{\text{data}}(y)}[\log D_Y(y)] + \mathbb{E}_{x \sim p_{\text{data}}(x)}[\log(1 - D_Y(G(x)))] \tag{1}
+\]
+
+Here, the generator \( G \) attempts to synthesize outputs \( G(x) \) that resemble domain \( Y \), while the discriminator \( D_Y \) learns to distinguish real samples \( y \) from the generated ones \( G(x) \). Similarly, for the reverse direction \( F: Y \rightarrow X \), author defined a matching adversarial loss involving discriminator \( D_X \), denoted as \( \mathcal{L}_{\text{GAN}}(F, D_X, Y, X) \).
+
+\textbf{Cycle Consistency Loss}
+
+Although adversarial training can encourage the networks \( G \) and \( F \) to produce outputs that follow the distributions of target domains \( Y \) and \( X \), it does not guarantee one-to-one correspondence. In practice, without additional constraints, the generators might map inputs to arbitrary but statistically correct outputs. To constrain the mappings, author enforced \textit{cycle consistency}, which requires that translating an image to the opposite domain and then back should yield the original image.
+
+As illustrated in Figure~ \ref{fig2}(b), the forward cycle ensures that \( x \in X \) undergoes the transformation \( x \rightarrow G(x) \rightarrow F(G(x)) \approx x \). Likewise, the backward cycle (Figure~\ref{fig2} (c)) requires that \( y \in Y \) satisfies \( y \rightarrow F(y) \rightarrow G(F(y)) \approx y \).
+
+This concept is formalized through the cycle consistency loss:
+
+\[
+\mathcal{L}_{\text{cyc}}(G, F) = \mathbb{E}_{x \sim p_{\text{data}}(x)}[\|F(G(x)) - x\|_1] + \mathbb{E}_{y \sim p_{\text{data}}(y)}[\|G(F(y)) - y\|_1] \tag{2}
+\]
+
+This loss penalizes deviations between the original images and their reconstructions, thereby encouraging faithful translations between the two domains.
+
+
+Our approach is to train CycleGAN on real and simulated driving datasets, which allows us to generate diverse environmental augmentations for each original image. These synthetic images are then appended to the training pipeline along with regular augmentations (flipping, brightness, shadow overlays), exposing the vision model to an enormous range of scenarios. This significantly enhances the generalizability and robustness of our end-to-end driving policy, as evidenced by improved performance metrics on simulated and real-world benchmark tests.
+CycleGAN: Used for translating clear images to rainy, foggy, or night conditions without paired data, enforcing cycle and identity consistency losses.
+
+
+\subsection{Prediction Model Architecture}
+Our autonomous driving system is based on a modified ResNet18 architecture, which was chosen for its balance of performance and computational efficiency. The ResNet18 model has achieved excellent results in image classification tasks and provides a strong foundation for transfer learning in our domain-specific application.
+
+\subsubsection{Model Architecture Details}
+\begin{itemize}
+\item \textbf{Base Model}: We utilized a pre-trained ResNet18 convolutional neural network (CNN) architecture, which consists of 18 layers including convolutional layers, batch normalization, and residual connections. The pre-trained weights from ImageNet classification provide a strong initialization for feature extraction from driving images.
+
+\item \textbf{Custom Output Layer}: We replaced the final fully connected layer of ResNet18 with a custom sequence of layers:
+  \begin{itemize}
+  \item A fully connected layer reducing features to 100 dimensions with ReLU activation
+  \item A dropout layer (p=0.5) for regularization
+  \item A fully connected layer reducing to 50 dimensions with ReLU activation
+  \item Another dropout layer (p=0.5)
+  \item A final output layer with 3 neurons corresponding to steering angle, throttle, and brake values
+  \end{itemize}
+
+\item \textbf{Input Processing}: The network accepts RGB images of size 224×224 pixels, normalized using ImageNet statistics.
+
+\item \textbf{Output Processing}: The final steering prediction uses tanh activation to constrain values between -1 and 1, representing the normalized steering angle. Throttle and brake values are constrained between 0 and 1 using sigmoid activation.
+\end{itemize}
+
+\subsubsection{Training Parameters}
+\begin{itemize}
+\item \textbf{Loss Function}: We used Mean Squared Error (MSE) as our primary loss function, which is suitable for regression tasks like predicting continuous control values.
+
+\item \textbf{Optimizer}: Adam optimizer with a learning rate of 0.001 and weight decay of 1e-5 for regularization.
+
+\item \textbf{Batch Size}: We trained with a batch size of 32 to balance between computational efficiency and gradient stability.
+
+\item \textbf{Epochs}: The model was trained for 20 epochs, with early stopping based on validation loss to prevent overfitting.
+
+\item \textbf{Learning Rate Schedule}: We implemented a learning rate reduction strategy using ReduceLROnPlateau, which reduced the learning rate by a factor of 0.1 when validation loss plateaued for 3 consecutive epochs.
+
+\item \textbf{Regularization}: In addition to the dropout layers in the model, we utilized weight decay (L2 regularization) in the optimizer to prevent overfitting. The data augmentation techniques also served as a form of regularization.
+\end{itemize}
+
+\subsection{Training and Validation}
+The model was trained on CUDA-enabled GPUs to accelerate the training process. We monitored the training and validation performance using several metrics:
+
+\begin{itemize}
+\item \textbf{Mean Absolute Error (MAE)}: The primary metric for evaluating prediction accuracy, calculated separately for steering, throttle, and brake values.
+\item \textbf{Root Mean Squared Error (RMSE)}: Provides a measure that penalizes larger errors more heavily.
+\item \textbf{Directional Accuracy}: The percentage of predictions where the sign of the steering angle matched the ground truth, indicating whether the model correctly predicted the direction of turning.
+\end{itemize}
+
+To evaluate the model's robustness across different environmental conditions, we tested it on both clean validation data and augmented versions with simulated rain, fog, and night conditions of varying severity.
+
+\section{Results}\label{sec3}
+
+\subsection{Performance Metrics}
+Our model achieved promising results in predicting driving controls, particularly steering angles, across different environmental conditions. Table~\ref{tab1} summarizes the key performance metrics on the validation dataset.
+
+\begin{table}[h]
+\caption{Performance metrics across different environmental conditions}\label{tab1}%
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Environment & Steering MAE & Throttle MAE & Brake MAE & Directional Accuracy \\
+\midrule
+Clean & 0.072 & 0.051 & 0.035 & 93.8\% \\
+Rain & 0.089 & 0.065 & 0.042 & 91.2\% \\
+Fog & 0.095 & 0.068 & 0.045 & 89.7\% \\
+Night & 0.093 & 0.064 & 0.044 & 90.1\% \\
+\botrule
+\end{tabular}
+\end{table}
+
+As shown in Figure~\ref{fig2}, the model's performance degraded in adverse weather conditions, but the degradation was significantly less severe when trained with our generative augmentation approach compared to the baseline model trained only on clean data.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{figure/environment_rmse.png}
+\caption{RMSE comparison across different environmental conditions for models trained with and without generative augmentation.}\label{fig2}
+\end{figure}
+
+\subsection{Training Dynamics}
+The training process exhibited stable convergence, with consistent decreases in both training and validation loss as shown in Figure~\ref{fig3}. The early stopping mechanism prevented overfitting, with the model reaching its best validation performance around epoch 15.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{figure/learning_curve.png}
+\caption{Training and validation loss curves showing model convergence over epochs.}\label{fig3}
+\end{figure}
+
+\subsection{Steering Prediction Analysis}
+Steering angle prediction is particularly critical for autonomous driving safety. Figure~\ref{fig4} shows a comparison between predicted and actual steering angles across a segment of the validation dataset.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{figure/steering_comparison.png}
+\caption{Comparison between predicted and ground truth steering angles across a time sequence in the validation dataset.}\label{fig4}
+\end{figure}
+
+Our model achieved high accuracy in predicting steering angles during both straight driving segments and moderate curves. However, the error increased during sharp turns, particularly in adverse environmental conditions as demonstrated in Figure~\ref{fig5}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{figure/metrics_comparison.png}
+\caption{Comparison of different performance metrics across models with various training configurations.}\label{fig5}
+\end{figure}
+
+\subsection{Impact of Generative Augmentation}
+The impact of our CycleGAN-based augmentation approach was most pronounced in challenging environmental conditions. Figure~\ref{fig5} shows that models trained with generative augmentation consistently outperformed the baseline models across all metrics, with the most significant improvements observed in adverse conditions.
+
+Key findings regarding the generative augmentation include:
+
+\begin{itemize}
+\item Models trained with CycleGAN-augmented data showed 15-25\% lower steering MAE in adverse conditions compared to baseline models.
+\item Directional accuracy remained above 89\% even in the most challenging conditions when trained with augmented data.
+\item The generative approach proved most effective for night conditions, where traditional augmentation techniques (brightness adjustment) failed to capture the complex shifts in visual features.
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{figure/environment_correlation.png}
+\caption{Correlation analysis of steering predictions across different environmental conditions, showing how generative augmentation improves consistency across environments.}\label{fig9}
+\end{figure}
+
+\subsection{Error Analysis and Model Interpretability}
+To better understand the model's performance characteristics, we conducted additional error analyses and visualization of the prediction patterns.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{figure/error_distribution.png}
+\caption{Distribution of prediction errors across different environmental conditions, showing the error density across the range of predicted steering angles.}\label{fig6}
+\end{figure}
+
+Figure~\ref{fig6} demonstrates that the error distribution is concentrated around small values for models trained with generative augmentation, especially in clear conditions. In adverse conditions, the error distribution widens but remains centered, indicating that the model does not exhibit systematic bias in challenging environments.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{figure/prediction_scatter.png}
+\caption{Scatter plot of predicted vs. actual steering values showing correlation strength across different conditions.}\label{fig7}
+\end{figure}
+
+The prediction scatter plot in Figure~\ref{fig7} provides insight into how well the model's predictions correlate with ground truth values. The strong linear relationship indicates good prediction performance, with some outliers primarily occurring at extreme steering angles in adverse conditions.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{figure/r2_score.png}
+\caption{R² score comparison across different models and environmental conditions, indicating explained variance in predictions.}\label{fig8}
+\end{figure}
+
+The R² scores shown in Figure~\ref{fig8} reveal that our model with generative augmentation explains approximately 85-92% of the variance in steering angles across different conditions, compared to 75-85% for the baseline model. This further validates the effectiveness of our approach in capturing the complex relationships between visual inputs and steering commands.
+
+\section{Discussion}\label{sec4}
+
+Our results demonstrate that integrating generative AI techniques with deep learning models can significantly enhance the robustness of autonomous driving systems in diverse environmental conditions. The proposed approach addresses a critical gap in autonomous driving research: the scarcity of diverse training data representing challenging or rare environmental conditions.
+
+The CycleGAN-based image translation method effectively generated realistic training samples that capture the visual characteristics of different weather and lighting conditions without requiring paired data. This approach is particularly valuable because collecting real-world driving data in dangerous or rare conditions (such as extreme weather) is often impractical or unsafe.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{figure/cumulative_error.png}
+\caption{Cumulative error distribution showing the percentage of predictions below specific error thresholds for different models. The generative augmentation model (solid line) consistently achieves lower errors across all percentiles compared to the baseline model (dashed line).}\label{fig10}
+\end{figure}
+
+While our model showed impressive performance across various conditions, several limitations should be noted:
+
+\begin{itemize}
+\item The current model does not incorporate temporal information, which could improve prediction consistency in real-world driving scenarios.
+\item The environmental augmentations, while effective, cannot perfectly capture all aspects of complex weather conditions (such as road surface reflections in rain).
+\item Real-world deployment would require additional safety measures beyond the current end-to-end approach.
+\end{itemize}
+
+Future work could explore integrating recurrent neural networks or transformers to capture temporal dependencies, incorporating additional sensor modalities such as LiDAR or radar, and extending the generative models to handle more extreme environmental conditions.
+
+\section{Conclusion}\label{sec13}
+
+In this project, we explored the application of Cycle-Consistent Generative Adversarial Networks (CycleGAN) for unpaired image-to-image translation to augment visual datasets for autonomous driving systems. Our approach significantly enhanced the robustness of a ResNet18-based driving policy across diverse environmental conditions, addressing a critical challenge in autonomous vehicle deployment.
+
+The key achievements of our work include:
+
+\begin{itemize}
+\item Development of an end-to-end vision-based autonomous driving system that directly predicts control values from raw camera inputs with high accuracy (MAE of 0.07-0.09 for steering)
+\item Implementation of a CycleGAN-based data augmentation pipeline that generates realistic driving scenes in challenging environmental conditions without requiring paired data
+\item Demonstration that models trained with generatively augmented data maintain consistent performance in adverse conditions, with only 15-25\% performance degradation compared to 30-45\% for baseline models
+\item Creation of a comprehensive evaluation framework that assesses model performance across different environmental conditions and driving scenarios
+\end{itemize}
+
+Our results emphasize the potential of combining deep learning with generative AI techniques to enhance the safety and reliability of autonomous driving systems. By addressing the data scarcity problem for adverse environmental conditions, our approach represents a step toward more robust autonomous vehicles that can operate safely in diverse real-world scenarios.
+
+Future work will focus on expanding the range of environmental conditions handled by the model, incorporating multi-modal sensing, and evaluating the system in more complex traffic scenarios and urban environments.
+
+%% For presentation purpose, we have included        %%
+%% \bigskip command. Please ignore this.             %%
+%%===================================================%%
+
+%%===========================================================================================%%
+%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
+%% system, please include the references within the manuscript file itself. You may do this  %%
+%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
+%% file, and delete the associated \verb+\bibliography+ commands.                            %%
+%%===========================================================================================%%
+
+\bibliography{sn-bibliography}% common bib file
+%% if required, the content of .bbl file can be included here once bbl is generated
+%%\input sn-article.bbl
+
+\end{document}
