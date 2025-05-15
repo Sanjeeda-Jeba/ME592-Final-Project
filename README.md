@@ -28,16 +28,17 @@ Datasets: https://github.com/lhyfst/awesome-autonomous-driving-datasets
 
 ---
 
-## Person 2: 
-**Role**: Generative AI Part (Data Augmentation)
+## Person 2: Angona Biswas
+**Role**: Generative AI Part (Environment-based Conditional Data Generation)
 
 ### Tasks:
 - Implement image augmentation to simulate night, rain, fog conditions.
-  - Option 1: Use image transformation libraries (Albumentations, torchvision)
-  - Option 2: Use lightweight GAN models to generate environmental effects
+- Use lightweight GAN models to generate environmental effects
 - Augment the clean dataset to create challenging conditions dataset.
 - Retrain the behavior cloning model on augmented + clean data (fine-tuning).
 - Track model improvement after augmentation.
+- used CycleGan for image generation, then also explored Apple's MLLM-Guided Image Editing (MGIE) and Runway(Runway ML) for nightview image generation. 
+- Contribution: Project Planning, Image generation using generative AI, improvement planning, report writing.
 
 ### Deliverables:
 - Augmented dataset
